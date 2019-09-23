@@ -1,0 +1,21 @@
+/*Reverse a string using a stack*/
+import java.util.Scanner;
+import java.util.Stack;
+
+public class Source{
+    public static void main(String arg[]) {
+        Stack<Character> s = new Stack<Character>();
+        Scanner in = new Scanner(System.in);
+        String data = in.nextLine();
+        //write your code here
+        for (int i=0;i<=data.length()-1;i++){
+            s.push(data.charAt(i));
+        }
+        StringBuilder out=new StringBuilder();
+        while (s.size()>0){
+            out.append(s.pop());
+        }
+        System.out.println(out);
+
+    }
+}
