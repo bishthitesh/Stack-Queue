@@ -47,7 +47,7 @@ public class StackUsingQueue {
 
 
     public static void main(String[] args) {
-        Source obj = new Source();
+        StackUsingQueue obj = new StackUsingQueue();
         Scanner in = new Scanner(System.in);
 
         /*Enter the number of elements you want to add in the stack */
