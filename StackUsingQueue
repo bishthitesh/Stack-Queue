@@ -1,0 +1,71 @@
+/*
+* Write a program to implement the basic methods of stack 
+* i.e. push( ) and pop( ) using a single queue.
+     Note: 
+    If there are no elements in the stack then, print “ Stack is empty” 
+    The stub code consists of the print statements in the main method that would first display 
+    the topmost element in the original stack then the topmost element after one pop( ) operation.
+    */
+
+
+import java.util.*;
+
+public class StackUsingQueue {
+
+    /*implementing queue using linked list */
+    Queue < Integer > q = new LinkedList < Integer > ();
+
+    /* Push operation of stack using queue*/
+    void push(int x) {
+        //write your code here
+        int s=q.size();
+        q.add(x);
+        int it=0,temp;
+        while(it<s){
+            temp=q.remove();
+            q.add(temp);
+            it+=1;
+        }
+
+    }
+
+    /*Removes the top element of the stack*/
+
+    int pop() {
+        //write your code here
+           return q.remove();
+    }
+
+
+    /*Returns the element at the top of the stack */
+    int top() {
+        //write your code here
+            int temp=q.remove();
+            Source.this.push(temp);
+            return temp;
+    }
+
+
+    public static void main(String[] args) {
+        Source obj = new Source();
+        Scanner in = new Scanner(System.in);
+
+        /*Enter the number of elements you want to add in the stack */
+
+        int n = in .nextInt();
+
+        /*Enter the elements of the stack */
+        for (int i = 0; i < n; i++) {
+            obj.push( in .nextInt());
+        }
+
+        try{
+        System.out.println(obj.top());
+        obj.pop();
+        System.out.println(obj.top());
+        }
+        catch (Exception e){
+            System.out.println("Stack is empty");
+        }
+    }
+}
