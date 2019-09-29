@@ -1,0 +1,32 @@
+/*You are given a queue with n integers. You need to delete the second half of the elements i.e., floor(n/2)
+elements from the head of the queue and print the remaining elements. */
+
+import java.util.*;
+
+public class DeleteSecondHalfQueue {
+    public static void main(String args[]) {
+        Queue<Integer> queue = new LinkedList<Integer>();
+        Scanner s = new Scanner(System.in);
+        int n = s.nextInt();
+        while (n-- > 0)
+            queue.add(s.nextInt());
+        deleteSecondHalf(queue);
+    }
+
+    // Method to delete the second half of the elements and print the remaining elements
+    static void deleteSecondHalf(Queue<Integer> queue) {
+        // Write your code here
+        Stack<Integer> stack= new Stack<>();
+        while (!queue.isEmpty()){
+            if(stack.isEmpty() || stack.peek()>queue.peek()){
+                int x=queue.remove();
+                stack.push(x);
+
+            }
+            else
+            {
+                stack.pop();
+            }
+        }
+    }
+}
