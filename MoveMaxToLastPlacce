@@ -1,0 +1,41 @@
+/*
+* You are given a queue.
+* Your aim is to find the maximum element of the queue and move that element to the end of the queue. */
+
+import java.util.LinkedList;
+import java.util.Queue;
+import java.util.Scanner;
+
+class MoveMaxToLastPlacce{
+    static Queue<Integer> q = new LinkedList<Integer>();
+
+    public static void func() {
+        //write your code here
+        int max=Integer.MIN_VALUE,temp,size=q.size();
+        for (int i=1;i<=size;i++){
+            temp=q.remove();
+            if(max<temp){
+                max=temp;
+            }
+            q.add(temp);
+        }
+        for (int i=1;i<=size;i++){
+            temp=q.remove();
+            if(temp!=max){
+                q.add(temp);
+            }
+        }
+        q.add(max);
+    }
+
+    public static void main(String arg[]) {
+        Scanner in = new Scanner(System.in);
+        int n = in.nextInt();
+
+        for (int j = 0; j < n; j++) {
+            q.add(in.nextInt());
+        }
+        func();
+        System.out.println(q);
+    }
+}
